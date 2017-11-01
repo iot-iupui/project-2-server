@@ -1,0 +1,22 @@
+{
+  "name": "project-2-server",
+  "version": "1.0.0",
+  "description": "CoAP server for school project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iot-iupui/project-2-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iot-iupui/project-2-server/issues"
+  },
+  "homepage": "https://github.com/iot-iupui/project-2-server#readme",
+  "dependencies": {
+    "coap": "^0.21.0"
+  }
+}
