@@ -27,19 +27,15 @@ public class HC_SR04
     
     private final static long BILLION      = (long)10E9;
     private final static int TEN_MICRO_SEC = 10_000; // In Nano secs
+  
+    System.out.println("GPIO Control - Range Sensor HC-SR04 Initialized.");
     
-    public static void main(String[] args) throws InterruptedException
-    {
-      System.out.println("GPIO Control - Range Sensor HC-SR04 Initialized.");
-      
-      //-------------------------------------------------------------------------
-      // setup gpio controller and init sensor
-      final GpioController gpio = GpioFactory.getInstance();
-      final GpioPinDigitalOutput trigPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "Trig", PinState.LOW);
-      final GpioPinDigitalInput  echoPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05,  "Echo");
-
-      //-------------------------------------------------------------------------
-    }
+    //-------------------------------------------------------------------------
+    // setup gpio controller and init sensor
+    final GpioController gpio = GpioFactory.getInstance();
+    final GpioPinDigitalOutput trigPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "Trig", PinState.LOW);
+    final GpioPinDigitalInput  echoPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05,  "Echo");
+    //-------------------------------------------------------------------------
   }
   public double getDistance () {
 
