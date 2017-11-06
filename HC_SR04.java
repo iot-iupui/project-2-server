@@ -45,7 +45,7 @@ public class HC_SR04
     //-------------------------------------------------------------------------
   }
 
-  public double getDistance () {
+  public double getDistance() throws Exception {
 
     System.out.println(">>> Waiting for the sensor to be ready (2s)...");
     Thread.sleep(2_000);
