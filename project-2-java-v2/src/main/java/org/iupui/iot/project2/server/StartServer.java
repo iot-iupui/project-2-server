@@ -10,6 +10,7 @@ public class StartServer {
 
         this.server.add(new GetGreeting());
         this.server.add(new GetDistance());
+        this.server.add(new GetTemperature());
 
         this.server.start();
     }

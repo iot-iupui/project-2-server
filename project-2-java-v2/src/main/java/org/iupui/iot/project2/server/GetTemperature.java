@@ -2,28 +2,26 @@ package org.iupui.iot.project2.server;
 
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.server.resources.CoapExchange;
-import org.iupui.iot.project2.sensor.distance.HC_SR04;
+import org.iupui.iot.project2.sensor.temperature.TempControlPWM;
 
-public class GetDistance extends CoapResource {
+public class GetTemperature extends CoapResource {
+    TempControlPWM sensor;
 
-    HC_SR04 sensor;
-
-    public GetDistance() {
-        super("distance");
+    public GetTemperature() {
+        super("temperature");
         // set display name
-        getAttributes().setTitle("distance");
+        getAttributes().setTitle("temperature");
 
-        sensor = new HC_SR04();
+        sensor = new TempControlPWM();
     }
 
     @Override
     public void handleGET(CoapExchange exchange) {
         try {
-            String response = String.format("{'distance': %f }", sensor.getDistance());
+            String response = String.format("{'temperature': %f }", sensor.getTemp());
             exchange.respond(response);
         } catch (Exception e) {
             exchange.respond("Something went wrong");
         }
     }
-
 }

@@ -3,7 +3,6 @@ package org.iupui.iot.project2.sensor.distance;
 import com.pi4j.io.gpio.*;
 
 public class HC_SR04 {
-
   private final static double SOUND_SPEED = 34029;       // in cm, 340.29 m/s
   private final static double DIST_FACT   = SOUND_SPEED / 2; // round trip
 
