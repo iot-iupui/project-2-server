@@ -14,6 +14,6 @@ public class GetHelloWorld extends CoapResource {
 
     @Override
     public void handleGET(CoapExchange exchange) {
-        exchange.respond(new GreetingPojo("Hello World").toString());
+        exchange.respond(new GreetingPojo("Hello Chris").toString());
     }
 }
