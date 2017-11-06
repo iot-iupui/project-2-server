@@ -1,6 +1,6 @@
-package org.iotiupui.project2;
+package org.iupui.iot.project2;
 
-import org.iotiupui.project2.hello.world.StartServer;
+import org.iupui.iot.project2.server.StartServer;
 
 public class Driver {
     public static void main(String[] args) {
