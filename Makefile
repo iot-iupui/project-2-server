@@ -1,8 +1,8 @@
 all:
-	pi4j --compile HC_SR04.java
+	pi4j --compile RangeFinderDriver.java
 
 run:
-	sudo pi4j --run HC_SR04 
+	sudo pi4j --run RangeFinderDriver
 
 clean:
-	rm *.class
+	rm -rf *.class

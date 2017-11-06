@@ -1,5 +1,3 @@
-package rangesensor;
-
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalInput;
@@ -18,30 +16,32 @@ import java.text.Format;
  */
 public class HC_SR04
 {
+  private final static Format DF22 = new DecimalFormat("#0.00");
+  private final static Format DF_N = new DecimalFormat("#.##########################");
+
+  private final static double SOUND_SPEED = 34029;       // in cm, 340.29 m/s
+  private final static double DIST_FACT   = SOUND_SPEED / 2; // round trip
+  
+  private final static long BILLION      = (long)10E9;
+  private final static int TEN_MICRO_SEC = 10_000; // In Nano secs
+
+  final GpioController gpio;
+  final GpioPinDigitalOutput trigPin;
+  final GpioPinDigitalInput  echoPin;  
+
+
   public HC_SR04 () {
-    private final static Format DF22 = new DecimalFormat("#0.00");
-    private final static Format DF_N = new DecimalFormat("#.##########################");
-
-    private final static double SOUND_SPEED = 34029;       // in cm, 340.29 m/s
-    private final static double DIST_FACT   = SOUND_SPEED / 2; // round trip
+    System.out.println("GPIO Control - Range Sensor HC-SR04 Initialized.");
     
-    private final static long BILLION      = (long)10E9;
-    private final static int TEN_MICRO_SEC = 10_000; // In Nano secs
-    
-    public static void main(String[] args) throws InterruptedException
-    {
-      System.out.println("GPIO Control - Range Sensor HC-SR04 Initialized.");
-      
-      //-------------------------------------------------------------------------
-      // setup gpio controller and init sensor
-      final GpioController gpio = GpioFactory.getInstance();
-      final GpioPinDigitalOutput trigPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "Trig", PinState.LOW);
-      final GpioPinDigitalInput  echoPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05,  "Echo");
-
-      //-------------------------------------------------------------------------
-    }
+    //-------------------------------------------------------------------------
+    // setup gpio controller and init sensor
+    gpio = GpioFactory.getInstance();
+    trigPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "Trig", PinState.LOW);
+    echoPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05,  "Echo");
+    //-------------------------------------------------------------------------
   }
-  public double getDistance () {
+
+  public double getDistance() throws Exception {
 
     System.out.println(">>> Waiting for the sensor to be ready (2s)...");
     Thread.sleep(2_000);
