@@ -26,17 +26,12 @@ public class TempControlPWM {
     Pin pin; 
     GpioPinPwmOutput pwm; 
 
-
-
     public TempControlPWM() {
         console = new Console();
-        gpio    = GpioFactory.getInstance();
-        pin     = CommandArgumentParser.getPin(RaspiPin.class,    // pin provider class to obtain pin instance from
-                                               RaspiPin.GPIO_01,  // default pin if no pin argument found
-                                               args);             // argument array to search in
+        gpio = GpioFactory.getInstance();
+        pin = CommandArgumentParser.getPin(RaspiPin.class, RaspiPin.GPIO_01);
 
-        // you can optionally use these wiringPi methods to further customize the PWM generator
-        // see: http://wiringpi.com/reference/raspberry-pi-specifics/
+        // setup wiring pi mode
         com.pi4j.wiringpi.Gpio.pwmSetMode(com.pi4j.wiringpi.Gpio.PWM_MODE_MS);
         com.pi4j.wiringpi.Gpio.pwmSetRange(1000);
         com.pi4j.wiringpi.Gpio.pwmSetClock(50);
