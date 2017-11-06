@@ -21,27 +21,28 @@ import com.pi4j.util.Console;
  */
 public class TempControlPWM {
 
-    final Console console = new Console();
-    GpioController gpio = GpioFactory.getInstance();
-    
-    // All Raspberry Pi models support a hardware PWM pin on GPIO_01.
-    // Raspberry Pi models A+, B+, 2B, 3B also support hardware PWM pins: GPIO_23, GPIO_24, GPIO_26
-    //
-    // by default we will use gpio pin #01; however, if an argument
-    // has been provided, then lookup the pin by address
-    Pin pin = CommandArgumentParser.getPin(
-            RaspiPin.class,    // pin provider class to obtain pin instance from
-            RaspiPin.GPIO_01,  // default pin if no pin argument found
-            args);             // argument array to search in
-            
-    pin.setShutdownOptions(true, PinState.LOW);
-    GpioPinPwmOutput pwm = gpio.provisionPwmOutputPin(pin);
+    final Console console;
+    GpioController gpio;
+    Pin pin; 
+    GpioPinPwmOutput pwm; 
 
-    // you can optionally use these wiringPi methods to further customize the PWM generator
-    // see: http://wiringpi.com/reference/raspberry-pi-specifics/
-    com.pi4j.wiringpi.Gpio.pwmSetMode(com.pi4j.wiringpi.Gpio.PWM_MODE_MS);
-    com.pi4j.wiringpi.Gpio.pwmSetRange(1000);
-    com.pi4j.wiringpi.Gpio.pwmSetClock(50);
+
+
+    public TempControlPWM() {
+        console = new Console();
+        Gpio    = GpioFactory.getInstance();
+        pin     = CommandArgumentParser.getPin(RaspiPin.class,    // pin provider class to obtain pin instance from
+                                               RaspiPin.GPIO_01,  // default pin if no pin argument found
+                                               args);             // argument array to search in
+
+        // you can optionally use these wiringPi methods to further customize the PWM generator
+        // see: http://wiringpi.com/reference/raspberry-pi-specifics/
+        com.pi4j.wiringpi.Gpio.pwmSetMode(com.pi4j.wiringpi.Gpio.PWM_MODE_MS);
+        com.pi4j.wiringpi.Gpio.pwmSetRange(1000);
+        com.pi4j.wiringpi.Gpio.pwmSetClock(50);
+        // pin.setShutdownOptions(true, PinState.LOW);
+        pwm = gpio.provisionPwmOutputPin(pin);
+    }
     
     public static double getTemp() {
 		W1Master master = new W1Master();
