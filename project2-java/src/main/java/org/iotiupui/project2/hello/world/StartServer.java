@@ -1,7 +1,6 @@
-package hello.world;
+package org.iotiupui.project2.hello.world;
 
 import org.eclipse.californium.core.CoapServer;
-import org.eclipse.californium.core.network.Endpoint;
 
 public class StartServer {
 

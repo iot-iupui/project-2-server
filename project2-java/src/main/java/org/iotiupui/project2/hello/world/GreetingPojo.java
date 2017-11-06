@@ -1,4 +1,4 @@
-package hello.world;
+package org.iotiupui.project2.hello.world;
 
 public class GreetingPojo {
     private String greeting;

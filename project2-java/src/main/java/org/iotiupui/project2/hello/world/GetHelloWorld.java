@@ -1,4 +1,4 @@
-package hello.world;
+package org.iotiupui.project2.hello.world;
 
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.server.resources.CoapExchange;
@@ -6,10 +6,10 @@ import org.eclipse.californium.core.server.resources.CoapExchange;
 public class GetHelloWorld extends CoapResource {
 
     public GetHelloWorld() {
-        super("hello");
+        super("main/java/org/iotiupui/project2/hello");
 
         // set display name
-        getAttributes().setTitle("hello");
+        getAttributes().setTitle("main/java/org/iotiupui/project2/hello");
     }
 
     @Override
