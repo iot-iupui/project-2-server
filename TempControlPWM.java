@@ -42,8 +42,6 @@ public class TempControlPWM {
     com.pi4j.wiringpi.Gpio.pwmSetMode(com.pi4j.wiringpi.Gpio.PWM_MODE_MS);
     com.pi4j.wiringpi.Gpio.pwmSetRange(1000);
     com.pi4j.wiringpi.Gpio.pwmSetClock(50);
-
-    }
     
     public static double getTemp() {
 		W1Master master = new W1Master();
