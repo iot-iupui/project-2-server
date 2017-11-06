@@ -5,12 +5,11 @@ class TempFinderDriver {
 
         while(true) {
             try{
-                System.out.println("Temperature : " + tempFinder.getDistance());
+                System.out.println("Temperature : " + tempFinder.getTemp());
                 Thread.sleep(1000);
             } catch (Exception ex) { 
                 ex.printStackTrace();
             }
-
         }
     }
 }
