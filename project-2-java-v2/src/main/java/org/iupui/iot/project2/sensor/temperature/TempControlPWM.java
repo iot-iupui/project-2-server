@@ -1,11 +1,13 @@
 package org.iupui.iot.project2.sensor.temperature;
 
-import com.pi4j.io.gpio.*;
+import com.pi4j.component.temperature.TemperatureSensor;
 import com.pi4j.io.w1.W1Master;
 import com.pi4j.temperature.TemperatureScale;
+
+import java.io.*;
+import com.pi4j.io.gpio.*;
 import com.pi4j.util.CommandArgumentParser;
 import com.pi4j.util.Console;
-import com.pi4j.component.temperature.TemperatureSensor;
 
 /**
  * Hybrid code between temperature example and pwm controller
