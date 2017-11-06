@@ -80,15 +80,15 @@ public class HC_SR04
       double pulseDuration = (double)(end - start) / (double)BILLION; 
       double distance = pulseDuration * DIST_FACT;
 
-      if (distance < 1_000) // Less than 10 meters
-        System.out.println("Distance : " + distance);
-        return distance;
-      else
+      if (distance < 1_000) { // if greater than 10 meters throw
         throw new Exception("distance problems yo");
+      }
+      System.out.println("Distance : " + distance);
+      return distance;
     }
     else 
     {
-      throw new Exception("sleep problems yo")
+      throw new Exception("sleep problems yo");
     }
     //-------------------------------------------------------------------------
   }
