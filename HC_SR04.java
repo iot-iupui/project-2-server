@@ -1,5 +1,3 @@
-package rangesensor;
-
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalInput;
@@ -33,8 +31,6 @@ public class HC_SR04
 
 
   public HC_SR04 () {
-    
-  
     System.out.println("GPIO Control - Range Sensor HC-SR04 Initialized.");
     
     //-------------------------------------------------------------------------
