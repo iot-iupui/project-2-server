@@ -84,7 +84,6 @@ public class HC_SR04
       if (distance > 1_000) { // if greater than 10 meters throw
         throw new Exception("distance problems yo");
       }
-      System.out.println("Distance : " + distance);
       return distance;
     }
     else 
