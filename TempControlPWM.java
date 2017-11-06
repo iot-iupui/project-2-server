@@ -30,7 +30,7 @@ public class TempControlPWM {
 
     public TempControlPWM() {
         console = new Console();
-        Gpio    = GpioFactory.getInstance();
+        gpio    = GpioFactory.getInstance();
         pin     = CommandArgumentParser.getPin(RaspiPin.class,    // pin provider class to obtain pin instance from
                                                RaspiPin.GPIO_01,  // default pin if no pin argument found
                                                args);             // argument array to search in
