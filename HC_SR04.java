@@ -41,10 +41,10 @@ public class HC_SR04
     // setup gpio controller and init sensor
     gpio = GpioFactory.getInstance();
     trigPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "Trig", PinState.LOW);
-    fechoPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05,  "Echo");
+    echoPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_05,  "Echo");
     //-------------------------------------------------------------------------
   }
-  
+
   public double getDistance () {
 
     System.out.println(">>> Waiting for the sensor to be ready (2s)...");
